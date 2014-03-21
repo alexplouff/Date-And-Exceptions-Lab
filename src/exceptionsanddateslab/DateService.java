@@ -20,39 +20,37 @@ import java.util.Date;
 public class DateService {
     
     
-    public Date getDateFromString(  ) throws ParseException {
+    public void setDateFromString( String getDate ) throws Exception {
+        
+        if ( getDate.length() == 0 ) {
+                throw new IllegalArgumentException (
+                    "Requires digits, Must be in format ## ## ####" );
+        } 
+        
         String dateFormat = "MM/dd/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat( dateFormat );
-        Date date = new Date();
-        String formattedDate = "03/19/2014";
-        date = sdf.parse( formattedDate );
-        return date;
-    }
-    
-    public void setDateFromString( String getDate ) throws ParseException {
-        String dateFormat = "MM/dd/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat( dateFormat );
-        Date date = new Date();
-        String formattedDate = "03/19/2014";
-        sdf.parse( getDate );
-        date = sdf.parse( formattedDate );
+        Date date;
+        date = sdf.parse( getDate );
+        
             System.out.println( date );
-            System.out.println( getDate );
     }
     
     
     
     public void getCalendarFromString( String MonthDateYearAndTime ) throws ParseException {
+        
+        if ( MonthDateYearAndTime.length() == 0 ) {
+            throw new IllegalArgumentException(" Format must follow ##/##/#### #:## ");
+        }
+        
         String dateFormat = "MM/dd/yyyy H:mm " ;
         SimpleDateFormat sdf = new SimpleDateFormat( dateFormat );
-        Calendar calendarDate = Calendar.getInstance();
+        Calendar calendarDate = Calendar.getInstance( );
         
         
         Date date = sdf.parse( MonthDateYearAndTime );
         calendarDate.setTime( date );
-        System.out.println( calendarDate.getTime() );
-        
-        
+        System.out.println( calendarDate.getTime( ) );
         
     }
     
