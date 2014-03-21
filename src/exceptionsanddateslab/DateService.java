@@ -29,6 +29,17 @@ public class DateService {
         return date;
     }
     
+    public void setDateFromString( String getDate ) throws ParseException {
+        String dateFormat = "MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat( dateFormat );
+        Date date = new Date();
+        String formattedDate = "03/19/2014";
+        sdf.parse( getDate );
+        date = sdf.parse( formattedDate );
+            System.out.println( date );
+            System.out.println( getDate );
+    }
+    
     
     
     public void getCalendarFromString( String MonthDateYearAndTime ) throws ParseException {
@@ -37,7 +48,7 @@ public class DateService {
         Calendar calendarDate = Calendar.getInstance();
         
         
-        Date date = sdf.parse( dateFormat );
+        Date date = sdf.parse( MonthDateYearAndTime );
         calendarDate.setTime( date );
         System.out.println( calendarDate.getTime() );
         
@@ -48,14 +59,17 @@ public class DateService {
     public static void main(String[] args) {
         DateService d = new DateService();
         
-        try{
-        System.out.println(d.getDateFromString());
         
-        } catch ( ParseException pe) {
-            
-            System.out.println("Please Enter Numbers To Format Date Format");
-        }
         
+//        try{
+//        System.out.println(d.getDateFromString());
+//        d.setDateFromString("07/06/1990");
+//        
+//        } catch ( ParseException pe) {
+//            
+//            System.out.println("Please Enter Numbers To Format Date Format");
+//        }
+//        
         
         try{
             d.getCalendarFromString( "03/19/2014 1:24 " );
