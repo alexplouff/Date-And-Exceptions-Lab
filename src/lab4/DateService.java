@@ -21,16 +21,17 @@ import java.util.Date;
 public class DateService {
     
     
-    public void setDateFromString( String getDate ) throws IllegalArgumentException {
+    public void setDateFromString( String getDate ) throws TooManyCharactersException, IllegalArgumentException {
         
         if ( getDate.length() == 0 ) {
                 throw new IllegalArgumentException (
                     "Requires digits, Must be in format ##/##/####" );
         } 
         
-//        if (getDate.isEmpty()){
-//            throw new CustomException();
-//        }
+        if ( getDate.length() > 10) {
+            throw new TooManyCharactersException("Too Many Characters");
+            
+        }
         
         String dateFormat = "MM/dd/yyyy";
         try{

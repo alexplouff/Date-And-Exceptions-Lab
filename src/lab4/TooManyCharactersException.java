@@ -10,13 +10,12 @@ package lab4;
  *
  * @author Alex
  */
-public class CustomException extends Exception {
+public class TooManyCharactersException extends Exception {
     
-    public final static String ERROR = "Can Not Be Empty"
-            ;
     
-    public CustomException(){
-        super(ERROR);
+    
+    public TooManyCharactersException(String error){
+        super(error);
     }
     
     

@@ -6,10 +6,6 @@
 
 package lab4;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Alex
@@ -20,14 +16,16 @@ public class StartUp {
     public static void main(String[] args) {
         DateService ds = new DateService();
         String date = "03/15/2014";
+        String empty = "";
+        String tooManyCharaceters = "03/04/20145";
         
         try {
-            ds.setDateFromString();
-        } catch (IllegalArgumentException ie ) {
+            ds.setDateFromString( tooManyCharaceters );
+        } catch (TooManyCharactersException | IllegalArgumentException ie ) {
             System.out.println(ie.getLocalizedMessage());
             
         } 
         
         
-}
+    }
 }
